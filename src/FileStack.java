@@ -3,8 +3,8 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class FileStack {
-    private SortedSet<File> files = new TreeSet<File>();
-    private ArrayList<String> fileNames = new ArrayList<String>();
+    private final SortedSet<File> files = new TreeSet<File>();
+    private final ArrayList<String> fileNames = new ArrayList<String>();
 
     public FileStack() {
     }

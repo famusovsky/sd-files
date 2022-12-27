@@ -14,7 +14,7 @@ public class FileStacksCollection {
         fileStacks.add(fileStack);
     }
 
-    public void normaliseStacks() {
+    public boolean normaliseStacks() {
         for (int i = 0; i < fileStacks.size(); i++) {
             for (int j = i + 1; j < fileStacks.size(); j++) {
                 if (fileStacks.get(i).containsFiles(fileStacks.get(j).getTopRequests())) {
@@ -24,6 +24,7 @@ public class FileStacksCollection {
                 }
             }
         }
+        return fileStacks.size() == 1;
     }
 
     public ArrayList<String> getContents() {

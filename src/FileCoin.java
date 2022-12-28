@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class FileCoin {
+public class FileCoin implements Comparable<FileCoin> {
     private final String name;
     private final String text;
     private final ArrayList<String> requiredFiles;
@@ -11,16 +11,15 @@ public class FileCoin {
         this.name = name;
         this.text = text;
         this.requiredFiles = new ArrayList<>();
-        String regex = "require\\s\\'\\S+\\'";
+        String regex = "require\\s['‘’][^'‘’]*[^'‘’]";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(text);
         while (matcher.find()) {
             String requiredFile = matcher.group();
-            requiredFile = requiredFile.substring(8, requiredFile.length() - 1);
+            requiredFile = requiredFile.substring(9);
             requiredFiles.add(requiredFile);
         }
     }
-
     public String getName() {
         return name;
     }
@@ -32,6 +31,15 @@ public class FileCoin {
     public ArrayList<String> getRequiredFiles() {
         return requiredFiles;
     }
-
-    //TODO: implement comparison of files
+    @Override
+    public int compareTo(FileCoin o) {
+        if (this.name.equals(o.name)) {
+            return 0;
+        }
+        if (this.getRequiredFiles().contains(o.getName())) {
+            return 1;
+        } else {
+            return -1;
+        }
+    }
 }

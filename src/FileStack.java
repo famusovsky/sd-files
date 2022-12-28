@@ -39,12 +39,14 @@ public class FileStack {
     }
 
     public boolean isFull() {
+        ArrayList<String> requests = new ArrayList<>();
         for (FileCoin file : files) {
-            if (!containsFiles(file.getRequiredFiles())) {
+            requests.addAll(file.getRequiredFiles());
+            if (requests.contains(file.getName())) {
                 return false;
             }
         }
-        return true;
+        return containsFiles(requests);
     }
 
     public ArrayList<String> getTopRequests() {

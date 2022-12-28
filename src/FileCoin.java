@@ -33,12 +33,13 @@ public class FileCoin implements Comparable<FileCoin> {
     }
     @Override
     public int compareTo(FileCoin o) {
+        if (this.name.equals(o.name)) {
+            return 0;
+        }
         if (this.getRequiredFiles().contains(o.getName())) {
             return 1;
-        } else if (o.getRequiredFiles().contains(this.getName())) {
-            return -1;
         } else {
-            return 0;
+            return -1;
         }
     }
 }

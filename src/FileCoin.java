@@ -11,12 +11,12 @@ public class FileCoin implements Comparable<FileCoin> {
         this.name = name;
         this.text = text;
         this.requiredFiles = new ArrayList<>();
-        String regex = "require\\s['‘’][^'‘’]*[^'‘’]";
+        String regex = "require\\s['‘’][^'‘’]*['‘’]";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(text);
         while (matcher.find()) {
             String requiredFile = matcher.group();
-            requiredFile = requiredFile.substring(9);
+            requiredFile = requiredFile.substring(9, requiredFile.length() - 1);
             requiredFiles.add(requiredFile);
         }
     }

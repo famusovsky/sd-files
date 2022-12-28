@@ -2,12 +2,12 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class File implements Comparable<File> {
+public class FileCoin implements Comparable<File> {
     private final String name;
     private final String text;
     private final ArrayList<String> requiredFiles;
 
-    public File(String name, String text) {
+    public FileCoin(String name, String text) {
         this.name = name;
         this.text = text;
         this.requiredFiles = new ArrayList<>();

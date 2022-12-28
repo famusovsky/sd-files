@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c743a93d-4a2c-4f1e-926c-08dae765f452" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
@@ -7,13 +10,10 @@
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/sd-files.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DirectoryScanner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/File.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FileStack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FileStacksCollection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileCoin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileStacksCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileStacksCollection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,11 +46,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>

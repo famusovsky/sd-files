@@ -3,17 +3,17 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class FileStack {
-    private final SortedSet<File> files = new TreeSet<File>();
+    private final SortedSet<FileCoin> files = new TreeSet<>();
     private final ArrayList<String> fileNames = new ArrayList<String>();
 
     public FileStack() {
     }
 
-    public FileStack(File file) {
+    public FileStack(FileCoin file) {
         addFile(file);
     }
 
-    public void addFile(File file) {
+    public void addFile(FileCoin file) {
         files.add(file);
         fileNames.add(file.getName());
     }
@@ -29,17 +29,17 @@ public class FileStack {
 
     public FileStack unite(FileStack fileStack) {
         FileStack newFileStack = new FileStack();
-        for (File file : files) {
+        for (FileCoin file : files) {
             newFileStack.addFile(file);
         }
-        for (File file : fileStack.files) {
+        for (FileCoin file : fileStack.files) {
             newFileStack.addFile(file);
         }
         return newFileStack;
     }
 
     public boolean isFull() {
-        for (File file : files) {
+        for (FileCoin file : files) {
             if (!containsFiles(file.getRequiredFiles())) {
                 return false;
             }
@@ -53,7 +53,7 @@ public class FileStack {
 
     public String getFullText() {
         StringBuilder fullText = new StringBuilder();
-        for (File file : files) {
+        for (FileCoin file : files) {
             fullText.append(file.getText());
         }
         return fullText.toString();

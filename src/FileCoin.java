@@ -20,6 +20,7 @@ public class FileCoin implements Comparable<FileCoin> {
             requiredFiles.add(requiredFile);
         }
     }
+
     public String getName() {
         return name;
     }
@@ -31,6 +32,7 @@ public class FileCoin implements Comparable<FileCoin> {
     public ArrayList<String> getRequiredFiles() {
         return requiredFiles;
     }
+
     @Override
     public int compareTo(FileCoin o) {
         if (this.name.equals(o.name)) {

@@ -1,10 +1,11 @@
+import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class FileStack {
     private final SortedSet<FileCoin> files = new TreeSet<>();
-    private final ArrayList<String> fileNames = new ArrayList<String>();
+    private final ArrayList<String> fileNames = new ArrayList<>();
 
     public FileStack() {
     }
@@ -18,7 +19,7 @@ public class FileStack {
         fileNames.add(file.getName());
     }
 
-    public boolean containsFiles(ArrayList<String> fileName) {
+    public boolean containsFiles(AbstractList<String> fileName) {
         for (String name : fileName) {
             if (!fileNames.contains(name)) {
                 return false;
@@ -57,6 +58,7 @@ public class FileStack {
         StringBuilder fullText = new StringBuilder();
         for (FileCoin file : files) {
             fullText.append(file.getText());
+            fullText.append("\n");
         }
         return fullText.toString();
     }

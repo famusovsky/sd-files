@@ -8,10 +8,10 @@ import java.util.Objects;
 public class DirectoryScanner {
     File directory;
 
-    public DirectoryScanner(String path) throws Exception {
+    public DirectoryScanner(String path) throws IllegalArgumentException {
         directory = new File(path);
         if (!directory.isDirectory()) {
-            throw new IllegalArgumentException("Path is not a directory");
+            throw new IllegalArgumentException("По указанному пути не найдена директория");
         }
     }
 

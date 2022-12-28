@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class FileStacksCollection {
-    private ArrayList<FileStack> fileStacks = new ArrayList<FileStack>();
+    private final ArrayList<FileStack> fileStacks = new ArrayList<FileStack>();
 
-    public void addFile(File file) {
+    public void addFile(FileCoin file) {
         for (FileStack fileStack : fileStacks) {
             if (fileStack.containsFiles(file.getRequiredFiles())) {
                 fileStack.addFile(file);

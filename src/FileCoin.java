@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class FileCoin implements Comparable<File> {
+public class FileCoin implements Comparable<FileCoin> {
     private final String name;
     private final String text;
     private final ArrayList<String> requiredFiles;
@@ -32,7 +32,7 @@ public class FileCoin implements Comparable<File> {
         return requiredFiles;
     }
     @Override
-    public int compareTo(File o) {
+    public int compareTo(FileCoin o) {
         if (this.getRequiredFiles().contains(o.getName())) {
             return 1;
         } else if (o.getRequiredFiles().contains(this.getName())) {

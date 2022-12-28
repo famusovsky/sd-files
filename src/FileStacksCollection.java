@@ -42,15 +42,20 @@ public class FileStacksCollection {
                 }
             }
         }
-        return (fileStacks.size() == 1 && fileStacks.get(0).isFull());
+        for (FileStack fileStack : fileStacks) {
+            if (!fileStack.isFull()) {
+                return false;
+            }
+        }
+        return true;
     }
 
-    public String getContents() {
-        StringBuilder contents = new StringBuilder();
+    public ArrayList<String> getContents() {
+        ArrayList<String> contents = new ArrayList<>();
         for (FileStack fileStack : fileStacks) {
-            contents.append(fileStack.getFullText());
+            contents.add(fileStack.getFullText());
         }
-        return contents.toString();
+        return contents;
     }
 
     public ArrayList<FileStack> getFileStacks() {

@@ -22,16 +22,17 @@ public class ConsoleUserInterface {
         fileStacksCollection = new FileStacksCollection(directoryScanner.getFileCoins());
         if (fileStacksCollection.normaliseStacks()) {
             System.out.println("Файлы успешно склеены, полученный текст:");
-            System.out.println(fileStacksCollection.getContents());
+            for (String line : fileStacksCollection.getContents()) {
+                System.out.println(line);
+            }
             while (true) {
                 System.out.println("Введите 1 / 2 (1 - сохранить результат в файл, 2 - не сохранять)");
                 String input = scanner.nextLine();
                 if (input.equals("1")) {
                     System.out.println("Введите путь к файлу, в который нужно сохранить результат");
                     try {
-                        SimpleFileWriter simpleFileWriter =
-                                new SimpleFileWriter(scanner.nextLine(), fileStacksCollection.getContents());
-                        simpleFileWriter.write();
+                        SimpleFileWriter simpleFileWriter = new SimpleFileWriter(scanner.nextLine());
+                        simpleFileWriter.write(fileStacksCollection.getContents());
                         break;
                     } catch (Exception e) {
                         System.out.println("Неверный ввод, ошибка: " + e.getMessage());

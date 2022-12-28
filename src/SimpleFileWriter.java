@@ -1,18 +1,25 @@
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.AbstractList;
 
 public class SimpleFileWriter {
     private final String path;
-    private final String text;
 
-    public SimpleFileWriter(String path, String text) {
+    public SimpleFileWriter(String path) {
         this.path = path;
-        this.text = text;
     }
 
-    public void write() throws IOException {
+    public void write(String text) throws IOException {
         FileWriter fileWriter = new FileWriter(path);
         fileWriter.write(text);
+        fileWriter.close();
+    }
+
+    public void write(AbstractList<String> text) throws IOException {
+        FileWriter fileWriter = new FileWriter(path);
+        for (String line : text) {
+            fileWriter.write(line);
+        }
         fileWriter.close();
     }
 }

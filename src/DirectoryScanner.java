@@ -19,10 +19,8 @@ public class DirectoryScanner {
         ArrayList<FileCoin> fileCoins = new ArrayList<>();
         try {
             scanDirectory(directory, fileCoins);
-        } catch (FileNotFoundException e) {
-            System.out.println("Произошла ошибка при чтении файла");
-        } catch (SecurityException e) {
-            System.out.println("Произошла ошибка доступа к файлу, из-за этого некоторые файлы могли быть не прочитаны");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
         return fileCoins;
     }
@@ -42,20 +40,24 @@ public class DirectoryScanner {
                     }
                     try (FileReader fileReader = new FileReader(item)) {
                         StringBuilder fileText = new StringBuilder();
+                        StringBuilder fileName = new StringBuilder();
                         int ch;
                         while ((ch = fileReader.read()) != -1) {
                             fileText.append((char) ch);
                         }
-                        fileCoins.add(new FileCoin(item.getAbsolutePath(), fileText.toString()));
+                        fileName.append(item.getAbsolutePath());
+                        fileName.delete(0, getDirectoryPath().length() + 1);
+                        fileName.delete(fileName.length() - 4, fileName.length());
+                        fileCoins.add(new FileCoin(fileName.toString(), fileText.toString()));
                     } catch (IOException e) {
-                        throw new FileNotFoundException();
+                        throw new FileNotFoundException("Произошла ошибка при чтении файла");
                     }
                 }
             }
         } catch (NullPointerException e) {
-            throw new FileNotFoundException();
+            throw new FileNotFoundException("Произошла ошибка при чтении файла");
         } catch (SecurityException e) {
-            throw new SecurityException();
+            throw new SecurityException("Произошла ошибка доступа к файлу");
         }
     }
 }

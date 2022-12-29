@@ -1,12 +1,23 @@
 import java.util.Scanner;
 
+/**
+ * Класс, представляющий консольный пользовательский интерфейс.
+ */
 public class ConsoleUserInterface {
     private final Scanner scanner;
 
+    /**
+     * Конструктор класса, представляющего консольный пользовательский интерфейс.
+     *
+     * @param scanner Сканнер, с помощью которого будет осуществляться ввод.
+     */
     public ConsoleUserInterface(Scanner scanner) {
         this.scanner = scanner;
     }
 
+    /**
+     * Метод, позволяющий пользователю осуществить конкатенацию файлов в некоторой директории и всех её поддиректориях.
+     */
     public void concatenate() {
         DirectoryScanner directoryScanner;
         FileStacksCollection fileStacksCollection;

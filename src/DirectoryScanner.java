@@ -5,9 +5,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Класс, представляющий сканер директории.
+ */
 public class DirectoryScanner {
-    File directory;
+    private final File directory;
 
+    /**
+     * Конструктор класса, представляющего сканер директории.
+     *
+     * @param path Путь к директории.
+     * @throws IllegalArgumentException Ошибка, возникающая при некорректном пути к директории.
+     */
     public DirectoryScanner(String path) throws IllegalArgumentException {
         directory = new File(path);
         if (!directory.isDirectory()) {
@@ -15,6 +24,11 @@ public class DirectoryScanner {
         }
     }
 
+    /**
+     * Метод, возвращающий список файлов в заданной директории и её поддиректориях.
+     *
+     * @return Список файлов в заданной директории и её поддиректориях.
+     */
     public ArrayList<FileCoin> getFileCoins() {
         ArrayList<FileCoin> fileCoins = new ArrayList<>();
         try {
@@ -25,6 +39,11 @@ public class DirectoryScanner {
         return fileCoins;
     }
 
+    /**
+     * Метод, возвращающий путь к заданной директории.
+     *
+     * @return Путь к заданной директории.
+     */
     public String getDirectoryPath() {
         return directory.getAbsolutePath();
     }

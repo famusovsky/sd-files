@@ -1,6 +1,14 @@
 import java.util.Scanner;
 
+/**
+ * Главный класс программы.
+ */
 public class Main {
+    /**
+     * Главный метод программы.
+     *
+     * @param args Аргументы командной строки.
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ConsoleUserInterface consoleUserInterface = new ConsoleUserInterface(scanner);
